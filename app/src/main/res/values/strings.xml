@@ -2,4 +2,6 @@
     <string name="app_name">ChateeInClass</string>
     <string name="login">LOGIN</string>
     <string name="register">REGISTER</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
 </resources>
