@@ -52,10 +52,20 @@ class ChatActivity: AppCompatActivity() {
         override fun getItemCount(): Int {
             return messages.count()
         }
+
         override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
             val message = messages[position]
+
             holder.itemView.sender_label.text = message.sender
             holder.itemView.message_body_label.text = message.messageBody
+
+            if (FirebaseAuth.getInstance().currentUser?.email == message.sender) {
+                holder.itemView.sender_image.setImageResource(R.drawable.smile)
+                holder.itemView.message_container.setBackgroundResource(R.drawable.rounded_background1)
+            } else {
+                holder.itemView.sender_image.setImageResource(R.drawable.stars)
+                holder.itemView.message_container.setBackgroundResource(R.drawable.rounded_background2)
+            }
         }
     }
     private fun update() {
